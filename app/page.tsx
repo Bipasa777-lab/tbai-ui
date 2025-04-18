@@ -1,6 +1,6 @@
 import CourseCard from "@/components/CourseCard"
 import RecentPlayCardProps from "@/components/RecentPlayCard"
-import courseData from "@/constants"
+import {courseData} from "@/constants"
 
 export default function Page() {
   return (
