@@ -17,7 +17,8 @@ import {
     Star,
     Trash,
     Trash2,
-    BellIcon
+    BellIcon,
+    User,
 } from "lucide-react"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -41,61 +42,41 @@ import {
 const data = [
     [
         {
-            label: "Customize Page",
-            icon: Settings2,
+            label: "Profile",
+            icon: User,
         },
         {
-            label: "Turn into wiki",
-            icon: FileText,
-        },
-    ],
-    [
-        {
-            label: "Copy Link",
-            icon: Link,
-        },
-        {
-            label: "Duplicate",
-            icon: Copy,
-        },
-        {
-            label: "Move to",
-            icon: CornerUpRight,
-        },
-        {
-            label: "Move to Trash",
-            icon: Trash2,
-        },
-    ],
-    [
-        {
-            label: "Undo",
-            icon: CornerUpLeft,
-        },
-        {
-            label: "View analytics",
-            icon: LineChart,
-        },
-        {
-            label: "Version History",
-            icon: GalleryVerticalEnd,
-        },
-        {
-            label: "Show delete pages",
-            icon: Trash,
-        },
-        {
-            label: "Notifications",
+            label: "Notification",
             icon: Bell,
         },
     ],
     [
         {
-            label: "Import",
-            icon: ArrowUp,
+            label: "Change Theme",
+            icon: Link,
         },
         {
-            label: "Export",
+            label: "Contact Us",
+            icon: CornerUpRight,
+        },
+    ],
+    [
+        {
+            label: "Privacy policy ",
+            icon: CornerUpLeft,
+        },
+        {
+            label: "Terms & Cond.",
+            icon: LineChart,
+        },
+    ],
+    [
+        {
+            label: "Change password",
+            icon: Copy,
+        },
+        {
+            label: "Log out",
             icon: ArrowDown,
         },
     ],

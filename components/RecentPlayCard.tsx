@@ -1,6 +1,6 @@
 import React from "react"
 
-interface CourseCardProps {
+interface RecentPlayCardProps {
   thumbnail: string
   title: string
   ratings?: number
@@ -9,7 +9,7 @@ interface CourseCardProps {
   description: string
 }
 
-const CourseCard: React.FC<CourseCardProps> = ({
+const RecentPlayCard: React.FC<RecentPlayCardProps> = ({
   thumbnail,
   title,
   ratings = 0,
@@ -22,14 +22,20 @@ const CourseCard: React.FC<CourseCardProps> = ({
   const hasHalfStar = ratings % 1 >= 0.5
 
   return (
-    <div className="w-full h-full flex flex-col rounded-2xl overflow-hidden shadow-md bg-white border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+    <div className="w-full cursor-pointer flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-md bg-white border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+      
+      {/* Image */}
       <img
-        className="w-full h-48 sm:h-52 md:h-56 object-cover hover:scale-105 transition-transform duration-300"
+        className="w-full md:w-1/3 h-48 md:h-auto object-cover"
         src={thumbnail}
         alt={`${title} thumbnail`}
       />
+
+      {/* Content */}
       <div className="p-4 flex-1 flex flex-col">
-        <h2 className="text-lg sm:text-xl font-semibold text-gray-800 line-clamp-2">{title}</h2>
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-800 line-clamp-2">
+          {title}
+        </h2>
 
         {/* Rating Stars */}
         <div className="flex items-center mt-2 gap-1">
@@ -66,4 +72,4 @@ const CourseCard: React.FC<CourseCardProps> = ({
   )
 }
 
-export default CourseCard
+export default RecentPlayCard
