@@ -119,7 +119,7 @@ export default function QuizePage() {
                 test your critical thinking.
               </p>
               <p className="text-sm text-gray-500 mb-6">
-                Complete today's challenge to maintain your daily streak and
+                Complete today&apos;s challenge to maintain your daily streak and
                 climb the leaderboard!
               </p>
               <Button className="rounded-full px-8 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium flex items-center gap-2 transform transition hover:scale-105">

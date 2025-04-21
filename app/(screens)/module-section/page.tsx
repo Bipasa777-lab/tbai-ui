@@ -88,8 +88,8 @@ export const ModuleSectionPage = () => {
             </header>
 
             {/* Tabs */}
-            <Tabs defaultValue="videos" className="w-full">
-                <TabsList className="flex flex-wrap gap-4 mb-8">
+            <Tabs defaultValue="videos" className="w-full ">
+                <TabsList className="flex flex-wrap gap-4 mb-8 bg-transparent">
                     {["videos", "quizzes", "content"].map((tab) => (
                         <TabsTrigger
                             key={tab}
@@ -201,7 +201,7 @@ export const ModuleSectionPage = () => {
                 {/* ------------------ Content Tab ------------------ */}
                 <TabsContent value="content">
                     <div className="p-6 flex gap-4 flex-col rounded-xl shadow">
-                        <h2 className="text-xl font-semibold mb-4 text-black">Downloadable Resources</h2>
+                        <h2 className="text-xl font-semibold mb-4 text-black">Resources</h2>
                         {contentItems.map((item) => (
                             <a
                                 key={item.id}
