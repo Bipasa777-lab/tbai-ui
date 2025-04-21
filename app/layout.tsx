@@ -1,23 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { AppSidebar } from "@/components/app-sidebar"
-import { NavActions } from "@/components/nav-actions"
+import { AppSidebar } from "@/components/app-sidebar";
+import { NavActions } from "@/components/nav-actions";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
-
+} from "@/components/ui/sidebar";
+import { PageLoader } from "@/components/PageLoader";
 
 export const metadata: Metadata = {
   title: "TBAI",
@@ -31,10 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-
+      <body className={`antialiased`}>
+        <PageLoader /> {/* <-- loader included here */}
         <SidebarProvider className="h-screen p-4">
           <AppSidebar />
           <SidebarInset>
@@ -45,9 +39,9 @@ export default function RootLayout({
                 <Breadcrumb>
                   <BreadcrumbList>
                     <BreadcrumbItem className="hidden md:block text-lg font-semibold">
-                      <BreadcrumbLink href="#">
-                        Courses
-                      </BreadcrumbLink>
+                      {/* <BreadcrumbLink href="#"> */}
+                      Courses
+                      {/* </BreadcrumbLink> */}
                     </BreadcrumbItem>
                     {/* <BreadcrumbSeparator className="hidden md:block" />
                     <BreadcrumbItem>

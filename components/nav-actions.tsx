@@ -19,6 +19,12 @@ import {
     Trash2,
     BellIcon,
     User,
+    MoonIcon,
+    Phone,
+    Scale,
+    EarthLockIcon,
+    KeyRoundIcon,
+    LogOutIcon
 } from "lucide-react"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -53,31 +59,31 @@ const data = [
     [
         {
             label: "Change Theme",
-            icon: Link,
+            icon: MoonIcon,
         },
         {
             label: "Contact Us",
-            icon: CornerUpRight,
+            icon: Phone,
         },
     ],
     [
         {
             label: "Privacy policy ",
-            icon: CornerUpLeft,
+            icon: EarthLockIcon,
         },
         {
             label: "Terms & Cond.",
-            icon: LineChart,
+            icon: Scale,
         },
     ],
     [
         {
             label: "Change password",
-            icon: Copy,
+            icon: KeyRoundIcon,
         },
         {
             label: "Log out",
-            icon: ArrowDown,
+            icon: LogOutIcon,
         },
     ],
 ]
