@@ -14,11 +14,12 @@ import { Trash2, X, ChevronDown, MoreVertical } from "lucide-react";
 import { assistantsData as assistants } from "@/constants";
 
 export default function AssistantPage() {
+  const [currentAssistant, setCurrentAssistant] = useState(assistants[0]);
   const [messages, setMessages] = useState([
     {
-      sender: "Kritika",
-      text: "Hello, I am Kritika. How can I help you today?",
-      time: "18:09",
+      sender: currentAssistant.name,
+      text: `Hello, I am ${currentAssistant.name}. How can I help you today?`,
+      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
   ]);
   const [messageInput, setMessageInput] = useState("");
@@ -38,7 +39,7 @@ export default function AssistantPage() {
         <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
           <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-2 text-2xl font-semibold bg-white px-4 py-2 rounded-lg cursor-pointer transition">
-              Assistants - Kritika
+              Assistants - {currentAssistant.name}
               <ChevronDown size={20} />
             </button>
           </DropdownMenuTrigger>
@@ -47,6 +48,20 @@ export default function AssistantPage() {
               <div
                 key={asst.name}
                 className="flex flex-col items-center hover:bg-gray-100 p-2 rounded-lg transition cursor-pointer"
+                onClick={() => {
+                  setCurrentAssistant(asst);
+                  setMessages([
+                    {
+                      sender: asst.name,
+                      text: `Hello, I am ${asst.name}. How can I help you today?`,
+                      time: new Date().toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      }),
+                    },
+                  ]);
+                  setDropdownOpen(false);
+                }}
               >
                 <img
                   src={asst.image}
@@ -66,7 +81,7 @@ export default function AssistantPage() {
               <MoreVertical size={20} />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="bg-white ">
+          <DropdownMenuContent align="end" className="bg-white">
             <DropdownMenuItem onClick={handleClear} className="cursor-pointer">
               <X size={16} className="mr-2" />
               Clear Chat
@@ -84,9 +99,9 @@ export default function AssistantPage() {
         {/* Avatar */}
         <div className="flex flex-col items-center">
           <Avatar className="w-24 h-24">
-            <AvatarImage src="/kritika-avatar.png" alt="Kritika" />
+            <AvatarImage src={currentAssistant.image} alt={currentAssistant.name} />
           </Avatar>
-          <h3 className="mt-3 text-xl font-bold text-gray-800">Kritika</h3>
+          <h3 className="mt-3 text-xl font-bold text-gray-800">{currentAssistant.name}</h3>
           <p className="text-sm text-gray-500">Your smart assistant</p>
         </div>
 
