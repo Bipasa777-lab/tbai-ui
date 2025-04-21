@@ -7,19 +7,17 @@ import {
 } from "@/components/ui/avatar"
 import {
   SidebarMenuButton,
-  useSidebar,
 } from "@/components/ui/sidebar"
 
 export function NavUser({
   user,
-}: {
+}: Readonly<{
   user: {
     name: string
     email: string
     avatar: string
   }
-}) {
-  const { isMobile } = useSidebar()
+}>) {
 
   return (
     <SidebarMenuButton

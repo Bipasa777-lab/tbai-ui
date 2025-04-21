@@ -1,12 +1,13 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { AppSidebar } from "@/components/app-sidebar";
 import { NavActions } from "@/components/nav-actions";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbList,
-} from "@/components/ui/breadcrumb";
+// import {
+//   Breadcrumb,
+//   BreadcrumbItem,
+//   BreadcrumbList,
+// } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
@@ -15,22 +16,31 @@ import {
 } from "@/components/ui/sidebar";
 import { PageLoader } from "@/components/PageLoader";
 import { LoaderProvider } from "@/context/LoaderContext";
+
+
+
+
 export const metadata: Metadata = {
   title: "TBAI",
   description: "Next Gen AI EDU",
 };
 import { Toaster } from "@/components/ui/sonner"
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  // const patname = usePathname()
+
   return (
     <html lang="en">
       <body className={`antialiased`}>
         <LoaderProvider>
-          <PageLoader /> {/* <-- loader included here */}
+          <PageLoader /> 
           <SidebarProvider className="h-screen p-4">
             <AppSidebar />
             <SidebarInset>
@@ -38,13 +48,13 @@ export default function RootLayout({
                 <div className="flex items-center gap-2 px-4">
                   <SidebarTrigger className="-ml-1 cursor-pointer" />
                   <Separator orientation="vertical" className="mr-2 h-4" />
-                  <Breadcrumb>
+                  {/* <Breadcrumb>
                     <BreadcrumbList>
                       <BreadcrumbItem className="hidden md:block text-lg font-semibold">
                         Courses
                       </BreadcrumbItem>
                     </BreadcrumbList>
-                  </Breadcrumb>
+                  </Breadcrumb> */}
                 </div>
                 <div className="ml-auto px-3">
                   <NavActions />

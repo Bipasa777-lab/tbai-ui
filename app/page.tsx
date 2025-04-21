@@ -13,8 +13,8 @@ export default function Page() {
         difficulty="Medium"
         description="Learn TypeScript from the ground up and apply it to real-world web development projects. Perfect for developers familiar with JavaScript."
       />
-      <div className="flex items-center justify-between">
-        <button className=" text-black cursor-pointer font-semibold text-md">
+      <div className="flex justify-end">
+        <button className="text-blue-600 hover:underline font-medium text-md cursor-pointer">
           View All
         </button>
       </div>

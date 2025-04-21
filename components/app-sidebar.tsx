@@ -5,12 +5,12 @@ import Image from "next/image";
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
+  // SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
 import { NavMain } from "@/components/nav-main";
-import { NavUser } from "@/components/nav-user";
+// import { NavUser } from "@/components/nav-user";
 import { data } from "@/constants";
 
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
@@ -31,9 +31,9 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
       </SidebarContent>
 
-      <SidebarFooter>
+      {/* <SidebarFooter>
         <NavUser user={data.user} />
-      </SidebarFooter>
+      </SidebarFooter> */}
 
       <SidebarRail />
     </Sidebar>
