@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form'
+import { useRouter } from 'next/navigation'
 // import { toast } from 'sonner'
 
 const formSchema = z.object({
@@ -17,6 +18,7 @@ const formSchema = z.object({
 })
 
 export default function LoginPage() {
+    const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -29,7 +31,8 @@ export default function LoginPage() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true)
-    console.log(form)
+    console.log(values)
+    router.push('/')
     setIsLoading(false)
     
   }
