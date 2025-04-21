@@ -14,6 +14,9 @@ import {
 } from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import { toast } from "sonner"
+ 
+
 
 const OTP_LENGTH = 4;
 const DUMMY_OTP = "1234";
@@ -40,11 +43,19 @@ export default function ChangePasswordPage() {
   };
 
   const handleSubmit = () => {
+
+    console.log("Clicked")
+
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      setIsOtpOpen(true);
-      setStep("otp");
+      if(form.confirmPassword === form.newPassword){
+          toast("Succesfully Change the Password")
+        router.push("/profile");
+      }else{
+        toast("Incorrect Confirm password nad new password")
+      }
+
     }, 1000);
   };
 
@@ -63,8 +74,7 @@ export default function ChangePasswordPage() {
       setIsLoading(false);
       if (enteredOtp === DUMMY_OTP) {
         setIsOtpOpen(false);
-        alert("Password changed successfully!");
-        router.push("/profile");
+        
       } else {
         setOtpError(true);
         setOtp(Array(OTP_LENGTH).fill(""));
@@ -132,21 +142,22 @@ export default function ChangePasswordPage() {
               required
             />
           </div>
-          <div className="flex items-center justify-between pt-2">
-            <Button type="submit" disabled={isLoading}>
+          <div className="flex items-center justify-between flex-col">
+          <button
+              type="button"
+              onClick={handleForgot}
+              className="text-sm text-blue-600 hover:underline cursor-pointer"
+            >
+              Forgot Password?
+            </button>
+            <Button type="submit"  className="w-full cursor-pointer" disabled={isLoading}>
               {isLoading ? (
                 <Loader2 className="animate-spin h-4 w-4" />
               ) : (
                 "Submit"
               )}
             </Button>
-            <button
-              type="button"
-              onClick={handleForgot}
-              className="text-sm text-blue-600 hover:underline"
-            >
-              Forgot Password?
-            </button>
+            
           </div>
         </form>
       )}
@@ -181,7 +192,7 @@ export default function ChangePasswordPage() {
               required
             />
           </div>
-          <Button type="submit" disabled={isLoading}>
+          <Button type="submit" onClick={handleSubmit} disabled={isLoading}>
             {isLoading ? (
               <Loader2 className="animate-spin h-4 w-4" />
             ) : (
