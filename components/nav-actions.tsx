@@ -1,34 +1,10 @@
 "use client"
 
 import * as React from "react"
-import {
-    ArrowDown,
-    ArrowUp,
-    Bell,
-    Copy,
-    CornerUpLeft,
-    CornerUpRight,
-    FileText,
-    GalleryVerticalEnd,
-    LineChart,
-    Link,
-    MoreHorizontal,
-    Settings2,
-    Star,
-    Trash,
-    Trash2,
-    BellIcon,
-    User,
-    MoonIcon,
-    Phone,
-    Scale,
-    EarthLockIcon,
-    KeyRoundIcon,
-    LogOutIcon
-} from "lucide-react"
+import { useRouter } from "next/navigation"
+import { NavActionData as data } from "@/constants"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-
 import { Button } from "@/components/ui/button"
 import {
     Popover,
@@ -44,56 +20,22 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-
-const data = [
-    [
-        {
-            label: "Profile",
-            icon: User,
-        },
-        {
-            label: "Notification",
-            icon: Bell,
-        },
-    ],
-    [
-        {
-            label: "Change Theme",
-            icon: MoonIcon,
-        },
-        {
-            label: "Contact Us",
-            icon: Phone,
-        },
-    ],
-    [
-        {
-            label: "Privacy policy ",
-            icon: EarthLockIcon,
-        },
-        {
-            label: "Terms & Cond.",
-            icon: Scale,
-        },
-    ],
-    [
-        {
-            label: "Change password",
-            icon: KeyRoundIcon,
-        },
-        {
-            label: "Log out",
-            icon: LogOutIcon,
-        },
-    ],
-]
+import { BellIcon } from "lucide-react"
 
 export function NavActions() {
     const [isOpen, setIsOpen] = React.useState(false)
+    const router = useRouter()
 
     React.useEffect(() => {
         setIsOpen(true)
     }, [])
+
+    const handleAction = (item: { url?: string }) => {
+        if (item.url) {
+            router.push(`/${item.url}`)
+            setIsOpen(false)
+        }
+    }
 
     return (
         <div className="flex items-center gap-4 text-sm">
@@ -119,14 +61,18 @@ export function NavActions() {
                 >
                     <Sidebar collapsible="none" className="bg-transparent">
                         <SidebarContent>
-                            {data.map((group, index) => (
-                                <SidebarGroup key={index} className="border-b last:border-none">
+                            {data.map((group, groupIndex) => (
+                                <SidebarGroup key={groupIndex} className="border-b last:border-none">
                                     <SidebarGroupContent className="gap-0">
                                         <SidebarMenu>
-                                            {group.map((item, index) => (
-                                                <SidebarMenuItem key={index}>
-                                                    <SidebarMenuButton className="cursor-pointer">
-                                                        <item.icon /> <span>{item.label}</span>
+                                            {group.map((item, itemIndex) => (
+                                                <SidebarMenuItem key={itemIndex}>
+                                                    <SidebarMenuButton
+                                                        className="cursor-pointer"
+                                                        onClick={() => handleAction(item)}
+                                                    >
+                                                        <item.icon className="mr-2 h-4 w-4" />
+                                                        <span>{item.label}</span>
                                                     </SidebarMenuButton>
                                                 </SidebarMenuItem>
                                             ))}

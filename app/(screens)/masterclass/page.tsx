@@ -47,7 +47,7 @@ export default function MasterClassPage() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4 pt-4">
-                  <Button className="bg-[#0fff3b] bg-opacity-50 text-black hover:bg-[#0fff3b] hover:bg-opacity-60 rounded-[30px] h-[44px] px-6 text-lg font-semibold">
+                  <Button className="bg-[#0fff3b] cursor-pointer bg-opacity-50 text-black hover:bg-[#0fff3b] hover:bg-opacity-60 rounded-[30px] h-[44px] px-6 text-lg font-semibold">
                     Enroll now
                   </Button>
 

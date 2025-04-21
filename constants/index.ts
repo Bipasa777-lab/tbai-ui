@@ -1,14 +1,16 @@
 import {
-    AudioWaveform,
     BookOpen,
     Bot,
-    Command,
-    Frame,
+    Bell,
     GalleryVerticalEnd,
-    Map,
-    PieChart,
     Settings2,
-    SquareTerminal,
+    User,
+    MoonIcon,
+    Phone,
+    Scale,
+    EarthLockIcon,
+    KeyRoundIcon,
+    LogOutIcon
 } from "lucide-react"
 
 // This is sample data.
@@ -16,7 +18,7 @@ export const data = {
     user: {
         name: "shadcn",
         email: "m@example.com",
-        avatar: "/avatars/shadcn.jpg",
+        avatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fprofile&psig=AOvVaw21pidEcaJnTPpCYzN8thxe&ust=1745302316445000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCIDdy_a76IwDFQAAAAAdAAAAABAE",
     },
 
     navMain: [
@@ -271,4 +273,54 @@ export const singlePageCourseData = {
       { number: 5, videos: 5, quizzes: 2 },
     ],
   };
-  
+
+
+
+  export const NavActionData = [
+    [
+        {
+            label: "Profile",
+            icon: User,
+            url:"profile"
+        },
+        {
+            label: "Notification",
+            icon: Bell,
+            url:"notification"
+        },
+    ],
+    [
+        {
+            label: "Change Theme",
+            icon: MoonIcon,
+        },
+        {
+            label: "Contact Us",
+            icon: Phone,
+            url:"contact-us"
+        },
+    ],
+    [
+        {
+            label: "Privacy policy ",
+            icon: EarthLockIcon,
+            url:"privacy-policy"
+        },
+        {
+            label: "Terms & Cond.",
+            icon: Scale,
+            url:"terms-and-condition"
+        },
+    ],
+    [
+        {
+            label: "Change password",
+            icon: KeyRoundIcon,
+            url:"change-password"
+        },
+        {
+            label: "Log out",
+            icon: LogOutIcon,
+        },
+    ],
+]

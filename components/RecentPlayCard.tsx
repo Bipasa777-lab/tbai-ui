@@ -25,12 +25,6 @@ const RecentPlayCard: React.FC<RecentPlayCardProps> = ({
 
   return (
     <div className="w-full cursor-pointer flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-md bg-white border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-      {/* Image */}
-      {/* <img
-        className="w-full md:w-1/3 h-48 md:h-auto object-cover"
-        src={thumbnail}
-        alt={`${title} thumbnail`}
-      /> */}
 
       <div className="w-full md:w-1/3 h-80 md:h-[320px] relative">
         <Image
