@@ -1,33 +1,16 @@
 // components/PageLoader.tsx
 "use client"
 
-import { usePathname } from "next/navigation"
-import { useEffect, useRef, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useLoader } from "@/context/LoaderContext"
 import clsx from "clsx"
 
 export function PageLoader() {
-  const pathname = usePathname()
-  const previousPath = useRef<string | null>(null)
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    if (previousPath.current && previousPath.current !== pathname) {
-      setLoading(true)
-      const timeout = setTimeout(() => {
-        setLoading(false)
-        previousPath.current = pathname
-      }, 800) // Simulated loading duration
-
-      return () => clearTimeout(timeout)
-    }
-
-    previousPath.current = pathname
-  }, [pathname])
+  const { isLoading } = useLoader()
 
   return (
     <AnimatePresence>
-      {loading && (
+      {isLoading && (
         <motion.div
           className="fixed inset-0 z-[9999] bg-white/60 backdrop-blur-sm flex items-center justify-center"
           initial={{ opacity: 0 }}

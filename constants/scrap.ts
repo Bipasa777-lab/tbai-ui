@@ -16,4 +16,11 @@
 // }
 
 
+// const { setLoading } = useLoader()
+
+// const loadData = async () => {
+//   setLoading(true)
+//   await fetch("/api/my-endpoint")
+//   setLoading(false)
+// }
 

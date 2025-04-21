@@ -14,7 +14,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { PageLoader } from "@/components/PageLoader";
-
+import { LoaderProvider } from "@/context/LoaderContext"
 export const metadata: Metadata = {
   title: "TBAI",
   description: "Next Gen AI EDU",
@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased`}>
+        <LoaderProvider>
         <PageLoader /> {/* <-- loader included here */}
         <SidebarProvider className="h-screen p-4">
           <AppSidebar />
@@ -59,6 +60,7 @@ export default function RootLayout({
             </div>
           </SidebarInset>
         </SidebarProvider>
+        </LoaderProvider>
       </body>
     </html>
   );
