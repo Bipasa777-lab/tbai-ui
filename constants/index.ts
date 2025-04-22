@@ -24,7 +24,7 @@ export const data = {
     navMain: [
         {
             title: "Courses",
-            url: "/",
+            url: "/course",
             icon: GalleryVerticalEnd,
             isActive: true,
         },
@@ -500,3 +500,130 @@ export const singlePageCourseData = {
         },
     ],
 ]
+
+
+
+
+
+// constants/index.ts
+
+export const singlePageCourseData2 = {
+  title: "Advanced React & Next.js: Build Modern Web Applications",
+  subtitle: "Master React, Next.js, TypeScript and build production-ready applications",
+  instructor: {
+    name: "John Developer",
+    avatar: "/course/instructor.png"
+  },
+  progress: 35,
+  description: `This comprehensive course will take you from beginner to expert in React and Next.js development. You'll learn how to build scalable, performant, and modern web applications using the latest techniques and tools.
+
+Through hands-on projects and real-world examples, you'll master state management, server-side rendering, API integration, authentication, and deployment. By the end of this course, you'll be able to build complete fullstack applications.
+
+All concepts are explained step-by-step with practical code examples that you can follow along with. You'll gain a deep understanding of React's component architecture, hooks, and advanced patterns.
+
+You'll also learn how to use TypeScript effectively with React to build type-safe applications, reducing bugs and improving developer experience. We'll cover Tailwind CSS for styling and ShadCN UI for beautiful component libraries.
+
+This course is regularly updated to include the latest features and best practices in the React and Next.js ecosystem.`,
+  
+  metadata: [
+    {
+      icon: "CalendarIcon",
+      label: "Last Updated",
+      value: "April 2025"
+    },
+    {
+      icon: "ClockIcon",
+      label: "Duration",
+      value: "8 hours"
+    },
+    {
+      icon: "PlayCircleIcon",
+      label: "Videos",
+      value: "45 lessons"
+    },
+    {
+      icon: "FileQuestionIcon",
+      label: "Quizzes",
+      value: "12 tests"
+    },
+    {
+      icon: "BookOpenIcon",
+      label: "Level",
+      value: "Intermediate"
+    },
+    {
+      icon: "UsersIcon",
+      label: "Students",
+      value: "4,250+"
+    },
+    {
+      icon: "StarIcon",
+      label: "Rating",
+      value: "4.8/5"
+    },
+    {
+      icon: "AwardIcon",
+      label: "Certificate",
+      value: "Included"
+    }
+  ],
+
+  modules: [
+    {
+      number: 1,
+      title: "Getting Started with React & Next.js",
+      videos: 8,
+      quizzes: 2,
+      isCompleted: true
+    },
+    {
+      number: 2,
+      title: "Building UI Components with TypeScript",
+      videos: 10,
+      quizzes: 3,
+      isCompleted: false
+    },
+    {
+      number: 3,
+      title: "State Management & Advanced Hooks",
+      videos: 12,
+      quizzes: 2,
+      isCompleted: false
+    },
+    {
+      number: 4,
+      title: "Server Components & Data Fetching",
+      videos: 8,
+      quizzes: 2,
+      isCompleted: false
+    },
+    {
+      number: 5,
+      title: "Authentication & API Integration",
+      videos: 4,
+      quizzes: 1,
+      isCompleted: false
+    },
+    {
+      number: 6,
+      title: "Styling with Tailwind CSS & ShadCN UI",
+      videos: 3,
+      quizzes: 1,
+      isCompleted: false
+    },
+    {
+      number: 7,
+      title: "Testing, Debugging & Performance Optimization",
+      videos: 6,
+      quizzes: 1,
+      isCompleted: false
+    },
+    {
+      number: 8,
+      title: "Deploying Fullstack Applications",
+      videos: 5,
+      quizzes: 0,
+      isCompleted: false
+    }
+  ]
+};

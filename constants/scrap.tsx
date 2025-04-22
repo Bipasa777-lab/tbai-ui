@@ -855,3 +855,107 @@
 //     </div>
 //   );
 // }
+
+
+// |-- app/
+// |   |-- (auth)/
+// |   |   |-- login/
+// |   |   |   |-- page.tsx
+// |   |   |-- register/
+// |   |       |-- page.tsx
+// |   |-- (screens)/
+// |   |   |-- assistant/
+// |   |   |-- change-password/
+// |   |   |-- contact-us/
+// |   |   |-- enrolled-course/
+// |   |   |-- masterclass/
+// |   |   |-- module-section/
+// |   |   |-- notification/
+// |   |   |-- privacy-policy/
+// |   |   |-- quiz/
+// |   |   |-- profile/
+// |   |   |-- single-course/
+// |   |   |-- terms-and-condition/
+// |   |   |-- single-quiz/
+// |   |-- splash/
+// |   |   |-- SplashScreen.tsx
+// |   |   |-- data.ts
+// |   |   |-- page.tsx
+// |   |-- components/
+// |   |   |-- ProgressBar.tsx
+// |   |-- layout.tsx
+// |   |-- page.tsx
+// |   |-- globals.css
+// |
+// |-- components/
+// |   |-- layout/
+// |   |   |-- LayoutWrapper.tsx
+// |   |   |-- app-sidebar.tsx
+// |   |-- navigation/
+// |   |   |-- nav-main.tsx
+// |   |   |-- nav-user.tsx
+// |   |   |-- nav-actions.tsx
+// |   |-- cards/
+// |   |   |-- BadgeCard.tsx
+// |   |   |-- CourseCard.tsx
+// |   |   |-- MasterClassCard.tsx
+// |   |   |-- RecentPlayCard.tsx
+// |   |-- course/
+// |   |   |-- CourseHeader.tsx
+// |   |   |-- CourseDescription.tsx
+// |   |   |-- CourseMetadata.tsx
+// |   |   |-- EnrollButton.tsx
+// |   |   |-- ModuleList.tsx
+// |   |   |-- VideoBanner.tsx
+// |   |-- feedback/
+// |   |   |-- PageLoader.tsx
+// |   |-- ui/                   # From shadcn/ui
+// |   |   |-- [shadcn UI components...]
+// |
+// |-- constants/
+// |   |-- index.ts
+// |   |-- scrap.tsx
+// |
+// |-- context/
+// |   |-- AuthContext.tsx      # (optional) for global auth
+// |   |-- LoaderContext.tsx
+// |
+// |-- hooks/
+// |   |-- use-mobile.ts
+// |   |-- useRouteLoader.ts
+// |   |-- useAuth.ts            # (optional) hook for auth
+// |
+// |-- lib/
+// |   |-- utils.ts
+// |   |-- api.ts                # central axios/fetch instance
+// |   |-- auth.ts               # helper methods for auth
+// |
+// |-- public/
+// |   |-- images/
+// |   |   |-- splash/
+// |   |   |   |-- splash1.png
+// |   |   |   |-- splash2.png
+// |   |   |   |-- splash3.png
+// |   |   |-- course/
+// |   |   |-- ...
+// |
+// |-- test/
+// |   |-- test-api-call-loader/
+// |   |-- test-routing-loader/
+// |
+// |-- types/
+// |   |-- index.d.ts
+// |   |-- splash.ts
+// |   |-- user.ts
+// |
+// |-- .gitignore
+// |-- README.md
+// |-- components.json
+// |-- eslint.config.mjs
+// |-- next-env.d.ts
+// |-- next.config.ts
+// |-- package.json
+// |-- package-lock.json
+// |-- postcss.config.mjs
+// |-- tailwind.config.ts
+// |-- tsconfig.json

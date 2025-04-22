@@ -34,7 +34,7 @@ export default function MasterClassPage() {
                 <img
                   className="w-full h-full object-cover"
                   alt={course.title}
-                  src={course.thumbnail || "/api/placeholder/640/360"}
+                  src={course.thumbnail || "https://dummyimage.com/600x400/ccc/000"}
                 />
               </div>
 
@@ -75,13 +75,7 @@ export default function MasterClassPage() {
                     <span>{course.isPaid ? "Paid" : "Free"}</span>
                   </Badge>
 
-                  <Badge
-                    variant="outline"
-                    className="flex items-center gap-1 px-3 py-1 border border-gray-200 bg-yellow-50"
-                  >
-                    <StarIcon className="h-4 w-4 text-yellow-500" />
-                    <span>{course.rating}</span>
-                  </Badge>
+                  
                 </div>
               </CardContent>
             </div>

@@ -32,7 +32,7 @@ export default function LoginPage() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true)
     console.log(values)
-    router.push('/')
+    router.push('/course')
     setIsLoading(false)
     
   }

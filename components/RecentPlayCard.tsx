@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 
 interface RecentPlayCardProps {
   thumbnail: string;
@@ -22,77 +26,64 @@ const RecentPlayCard: React.FC<RecentPlayCardProps> = ({
   const maxStars = 5;
   const fullStars = Math.floor(ratings);
   const hasHalfStar = ratings % 1 >= 0.5;
+  const emptyStars = maxStars - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="w-full cursor-pointer flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-md bg-white border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+    <Card className="w-full max-w-md sm:max-w-full rounded-2xl shadow-md border p-4 transition-transform hover:scale-[1.01]">
+      <div className="flex flex-col sm:flex-row gap-4">
+        {/* Thumbnail */}
+        <div className="relative w-full sm:w-40 h-40 rounded-lg overflow-hidden">
+          <Image
+            src={thumbnail}
+            alt={`${title} Thumbnail`}
+            fill
+            className="object-cover"
+          />
+        </div>
 
-      <div className="w-full md:w-1/3 h-80 md:h-[320px] relative">
-        <Image
-          src={thumbnail}
-          alt="thumbnail"
-          fill
-          className="object-cover rounded-l-xl"
-          sizes="(max-width: 768px) 100vw, 33vw"
-          priority
-        />
-      </div>
+        {/* Content */}
+        <div className="flex flex-col justify-between flex-1">
+          {/* Title */}
+          <h2 className="text-lg sm:text-xl font-semibold mb-1">{title}</h2>
 
-      {/* Content */}
-      <div className="p-4 flex-1 flex flex-col">
-        <h2 className="text-lg sm:text-xl font-semibold text-gray-800 line-clamp-2">
-          {title}
-        </h2>
-
-        {/* Rating Stars */}
-        <div className="flex items-center mt-2 gap-1">
-          {[...Array(fullStars)].map((_, i) => (
-            <span key={i} className="text-yellow-500 text-sm">
-              ★
-            </span>
-          ))}
-          {hasHalfStar && <span className="text-yellow-500 text-sm">☆</span>}
-          {[...Array(maxStars - fullStars - (hasHalfStar ? 1 : 0))].map(
-            (_, i) => (
-              <span key={i} className="text-gray-300 text-sm">
+          {/* Ratings */}
+          <div className="flex items-center gap-1 text-yellow-500 text-sm mb-1">
+            {[...Array(fullStars)].map((_, i) => (
+              <span key={`full-${i}`} aria-label="Full star">★</span>
+            ))}
+            {hasHalfStar && <span aria-label="Half star">☆</span>}
+            {[...Array(emptyStars)].map((_, i) => (
+              <span key={`empty-${i}`} aria-label="Empty star" className="opacity-30">
                 ★
               </span>
-            )
-          )}
-          <span className="ml-2 text-gray-600 text-sm">
-            {ratings.toFixed(1)}
-          </span>
-        </div>
+            ))}
+            <span className="text-gray-600 ml-1">{ratings.toFixed(1)}</span>
+          </div>
 
-        {/* Badges */}
-        <div className="flex flex-wrap gap-2 mt-2 text-xs font-medium">
-          <span
-            className={`px-2 py-0.5 rounded-full ${
-              isPaid ? "bg-red-100 text-red-600" : "bg-green-100 text-green-600"
-            }`}
-          >
-            {isPaid ? "Paid" : "Free"}
-          </span>
-          <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-600">
-            {difficulty}
-          </span>
-        </div>
+          {/* Badges */}
+          <div className="flex flex-wrap gap-2 mb-2">
+            <Badge variant={isPaid ? "default" : "secondary"}>
+              {isPaid ? "Paid" : "Free"}
+            </Badge>
+            <Badge variant="outline">{difficulty}</Badge>
+          </div>
 
-        {/* Description */}
-        <p className="text-gray-700 text-sm mt-3 line-clamp-3 flex-grow">
-          {description}
-        </p>
+          {/* Description */}
+          <p className="text-sm text-muted-foreground line-clamp-3 mb-3">
+            {description}
+          </p>
 
-        <div className="mt-4">
-          <div className="flex justify-between items-center mb-1">
-            <span className="text-sm font-medium text-gray-700">Progress</span>
-            <span className="text-sm font-medium text-gray-700">
+          {/* Progress */}
+          <div className="flex flex-col gap-1">
+            <span className="text-xs text-gray-500">Progress</span>
+            <Progress value={(ratings / 5) * 100} />
+            <span className="text-xs text-right text-gray-600">
               {ratings.toFixed(1)} / 5
             </span>
           </div>
-          <Progress value={(ratings / 5) * 100} className="h-3" />
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
